@@ -28,15 +28,7 @@ public class UserController {
         return "/hello";
     }
 
-    @GetMapping(value = "login")
-    public String loginPage() {
-        return "login";
-    }
 
-    @GetMapping("/logout")
-    public String logoutPage(){
-        return "redirect:/admin";
-    }
 
     @GetMapping("/user/show")
     public String userShowPage(Principal principal, Model model){
