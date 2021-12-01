@@ -12,29 +12,24 @@
 
 </head>
 <body>
-
 <div class="container">
-
-    <div class="row">
-        <div class="col-lg-5"></div>
-
-            <form method="post" action="/login">
-
-                <div class="col-lg">
-                    <h6 class="h6 font-weight-bold">Please sign in</h6>
-                    <input type="text" class="form-control" placeholder="Email address" name="username">
+    <div class="row align-items-center">
+        <div class="col align-self-start"></div>
+        <div class="col align-self-center">
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <h3 class="font-weight-bold">Please sign in</h3>
+                    <input type="text" class="form-control"
+                           placeholder="Email address" name="username">
+                    <input type="password" class="form-control"
+                           placeholder="Password" name="password">
                 </div>
-                <div class="col-lg">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
-                </div>
-                <div class="col-lg">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
-
-        </form>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col align-self-end"></div>
     </div>
 </div>
-</div>
-</div>
+
 </body>
 </html>
