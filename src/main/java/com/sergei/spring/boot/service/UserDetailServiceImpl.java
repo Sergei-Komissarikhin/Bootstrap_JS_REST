@@ -21,10 +21,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public User loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userDao.getUserByName(username);
+    public User loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userDao.getUserByName(email);
 
-        if (username == null) {
+        if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
         return user;

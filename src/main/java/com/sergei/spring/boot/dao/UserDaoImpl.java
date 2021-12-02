@@ -42,12 +42,12 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public User getUserByName(String name){
+    public User getUserByName(String email){
         return entityManager.createQuery("SELECT u FROM User u " +
                         "INNER JOIN FETCH u.roles " +
-                        "WHERE u.firstName = :name",
+                        "WHERE u.email = :email",
                         User.class)
-                .setParameter("name", name)
+                .setParameter("email", email)
                 .getSingleResult();
     }
 }
