@@ -5,15 +5,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <title>Admin panel</title>
 </head>
 <body>
 <!--Label-->
 <span class="d-block p-2 bg-dark">
     <div class="text-white">
-        <a class="font-weight-bold" th:text="${users[0].getEmail()}"></a>
+        <span class="font-weight-bold" th:text="${users[0].getEmail()}"></span>
         <a>with roles:</a>
         <a th:each="roles :${users[0].getRoles()}">
             <a th:text="${roles.getRole()}"/>
@@ -22,20 +22,20 @@
     </div>
 </span>
 <!--Body-->
-<div class="container-fluid">
+
     <div class="row">
-        <div class="col-2">
-            <nav class="navbar navbar-light bg-light">
+        <div class="col-2 vр-100">
+            <nav class="navbar navbar-light">
                 <form class="form-inline">
                     <button class="btn btn-outline-light text-dark" type="button"  >Admin</button>
                 </form>
             </nav>
         </div>
-        <div class="col-10" style="background-color: #e9fffa">
+        <div class="col-10 vh-100" style="background-color: #e9fffa">
             <h3 class="text">Hello, world!</h3>
         </div>
     </div>
-</div>
+
 
 
 <table th:width="500" th:border="2">
