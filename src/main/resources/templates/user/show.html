@@ -2,9 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Юзер</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>User page</title>
 </head>
 <body>
+<span class="d-block p-2 bg-dark">
+    <div class="text-white">
+        <a class="font-weight-bold" th:text="${user.getEmail()}"></a>
+        <a>with roles:</a>
+        <a th:each="roles :${user.getRoles()}">
+            <a th:text="${roles.getRole()}"/>
+        </a>
+        <a class="float-right text-white-50" href="/logout">Logout</a>
+    </div>
+</span>
 <table th:width="500" th:border="2">
     <thead>
     <tr>
@@ -13,7 +28,6 @@
         <th>Last name</th>
         <th>Age</th>
         <th>Email</th>
-<!--        <th>Password</th>-->
         <th>Roles</th>
     </tr>
     </thead>
@@ -23,7 +37,6 @@
         <td th:text="${user.getLastName()}"/>
         <td th:text="${user.getAge()}"/>
         <td th:text="${user.getEmail()}"/>
-<!--        <td th:password="${user.getPassword()}"/>-->
         <td>
             <th:block th:each="role : ${user.getRoles()}">
                 <label th:text="${role.role}"/>
@@ -32,9 +45,5 @@
         </td>
     </tr>
 </table>
-<br>
-<form th:method="GET" th:action="@{/logout}">
-    <input type="submit" value="Logout">
-</form>
 </body>
 </html>
