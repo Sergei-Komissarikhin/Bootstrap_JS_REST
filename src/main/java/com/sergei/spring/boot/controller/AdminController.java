@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Set;
 
 
@@ -20,15 +21,19 @@ public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
 
+    private final UserDetailServiceImpl userDetailService;
+
     @Autowired
-    public AdminController(UserService userService, RoleService roleService) {
+    public AdminController(UserService userService, RoleService roleService, UserDetailServiceImpl userDetailService) {
         this.userService = userService;
         this.roleService = roleService;
+        this.userDetailService = userDetailService;
     }
 
     @GetMapping("")
-    public String index(Model model) {
+    public String index(Model model, Principal principal) {
         model.addAttribute("users", userService.getAllUsers());
+//        model.addAttribute("user1", userDetailService.loadUserByUsername(principal.getName()));
         return "admin/index";
     }
 
