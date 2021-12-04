@@ -106,31 +106,85 @@
                                     <td>
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#staticBackdrop">
-                                            Edit
+                                                data-target="#staticBackdrop">Edit
                                         </button>
 
-                                        <!-- Модальное окно Edit-->
+                        <!-- Модальное окно Edit-->
                                         <div class="modal fade" id="staticBackdrop" data-backdrop="static"
                                              data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                              aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
+                            <!--Close button-->
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Edit user</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
+                            <!--Body of user Edit-->
                                                     <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Закрыть
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary">Понял</button>
+                                                        <div class="row justify-content-center align-items-center">
+                                                            <form th:method="PATCH"
+                                                                  th:action="@{/admin/{id}/(id=${user.getId()})}"
+                                                                  th:object="${user}" >
+                                    <!--id-->
+                                                                <div class="form-group text-center " readonly>
+                                                                    <label for="id"><b>ID</b></label>
+                                                                    <input class="form-control" id="id" type="text"
+                                                                           th:value="*{id}" readonly>
+                                                                </div>
+                                    <!--FirstName-->
+                                                                <div class="form-group text-center">
+                                                                    <label for="FirstName"><b>First name</b></label>
+                                                                    <input class="form-control" name="firstName" id="FirstName"
+                                                                           type="text" th:value="*{firstName}">
+                                                                </div>
+                                    <!--LastName-->
+                                                                <div class="form-group text-center">
+                                                                    <label for="LastName"><b>Last name</b></label>
+                                                                    <input class="form-control" name="lastName" id="LastName"
+                                                                           type="text" th:value="*{lastName}">
+                                                                </div>
+                                    <!--Age-->
+                                                                <div class="form-group text-center">
+                                                                    <label for="Age"><b>Age</b></label>
+                                                                    <input class="form-control"  name="age" id="Age" type="number"
+                                                                           th:value="*{age}">
+                                                                </div>
+                                    <!--Email-->
+                                                                <div class="form-group text-center">
+                                                                    <label for="Email"><b>Email</b></label>
+                                                                    <input class="form-control" name="email" id="Email" type="email"
+                                                                           th:value="*{email}">
+                                                                </div>
+                                    <!--Password-->
+                                                                <div class="form-group text-center">
+                                                                    <label for="Pass"><b>Password</b></label>
+                                                                    <input class="form-control" name="password" id="Pass" type="password">
+                                                                </div>
+                                    <!--Role-->
+                                                                <div class="form-group text-center">
+                                                                    <label for="Roles"><b>Role</b></label>
+                                                                    <select multiple class="form-control" name="rolesForUser" size="2"
+                                                                            id="Roles">
+                                                                        <div th:each="role :${roles}">
+                                                                            <option th:text="${role.getRole()}"></option>
+                                                                        </div>
+                                                                    </select>
+                                                                </div>
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary">Edit
+                                                            </button>
+                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,7 +192,7 @@
                                     </td>
                                     <!--Edit end-->
                                     <td>
-                                    <!--Delete start-->
+                                        <!--Delete start-->
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-danger" data-toggle="modal"
                                                 data-target="#staticBackdrop1">
@@ -152,7 +206,8 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdrop1Label">Delete</h5>
+                                                        <h5 class="modal-title" id="staticBackdrop1Label">Delete
+                                                            user</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -163,9 +218,9 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Закрыть
+                                                                data-dismiss="modal">Close
                                                         </button>
-                                                        <button type="button" class="btn btn-primary">Понял</button>
+                                                        <button type="button" class="btn btn-danger">Delete</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,7 +268,6 @@
                 <br>
             </th:block>
         </td>
-
 
         <td>
             <form th:method="GET" th:action="@{/admin/{id}/edit(id=${user.getId()})}">
