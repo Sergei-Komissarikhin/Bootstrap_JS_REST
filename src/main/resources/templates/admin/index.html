@@ -132,42 +132,42 @@
                                     <!--id-->
                                                                 <div class="form-group text-center " readonly>
                                                                     <label for="id"><b>ID</b></label>
-                                                                    <input class="form-control" id="id" type="text"
+                                                                    <input class="form-control form-control-sm" id="id" type="text"
                                                                            th:value="*{id}" readonly>
                                                                 </div>
                                     <!--FirstName-->
                                                                 <div class="form-group text-center">
                                                                     <label for="FirstName"><b>First name</b></label>
-                                                                    <input class="form-control" name="firstName" id="FirstName"
+                                                                    <input class="form-control form-control-sm" name="firstName" id="FirstName"
                                                                            type="text" th:value="*{firstName}">
                                                                 </div>
                                     <!--LastName-->
                                                                 <div class="form-group text-center">
                                                                     <label for="LastName"><b>Last name</b></label>
-                                                                    <input class="form-control" name="lastName" id="LastName"
+                                                                    <input class="form-control form-control-sm" name="lastName" id="LastName"
                                                                            type="text" th:value="*{lastName}">
                                                                 </div>
                                     <!--Age-->
                                                                 <div class="form-group text-center">
                                                                     <label for="Age"><b>Age</b></label>
-                                                                    <input class="form-control"  name="age" id="Age" type="number"
+                                                                    <input class="form-control form-control-sm"  name="age" id="Age" type="number"
                                                                            th:value="*{age}">
                                                                 </div>
                                     <!--Email-->
                                                                 <div class="form-group text-center">
                                                                     <label for="Email"><b>Email</b></label>
-                                                                    <input class="form-control" name="email" id="Email" type="email"
+                                                                    <input class="form-control form-control-sm" name="email" id="Email" type="email"
                                                                            th:value="*{email}">
                                                                 </div>
                                     <!--Password-->
                                                                 <div class="form-group text-center">
                                                                     <label for="Pass"><b>Password</b></label>
-                                                                    <input class="form-control" name="password" id="Pass" type="password">
+                                                                    <input class="form-control form-control-sm" name="password" id="Pass" type="password">
                                                                 </div>
                                     <!--Role-->
                                                                 <div class="form-group text-center">
                                                                     <label for="Roles"><b>Role</b></label>
-                                                                    <select multiple class="form-control" name="rolesForUser" size="2"
+                                                                    <select multiple class="form-control form-control-sm" name="rolesForUser" size="2"
                                                                             id="Roles">
                                                                         <div th:each="role :${roles}">
                                                                             <option th:text="${role.getRole()}"></option>
@@ -175,7 +175,7 @@
                                                                     </select>
                                                                 </div>
 
-
+                                                            </form>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -184,7 +184,6 @@
                                                             <button type="submit" class="btn btn-primary">Edit
                                                             </button>
                                                         </div>
-                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
