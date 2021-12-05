@@ -53,8 +53,12 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void updateUser(User user, Set<Role> roles) {
         user.setRoles(getRolesForUpdate(roles));
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userDao.updateUser(user);
+        if(user.getPassword().startsWith("$2a$08")){
+            userDao.updateUser(user);
+        }else {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userDao.updateUser(user);
+        }
     }
 
     public Set<Role> getRolesForUpdate(Set<Role> roles) {
