@@ -1,5 +1,6 @@
 package com.sergei.spring.boot.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Role implements GrantedAuthority {
     private String role;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "role_id"),
