@@ -21,7 +21,6 @@
 </head>
 <body>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto text-white ">
             <a class="navbar-brand  font-weight-bold" th:text="${principal.getEmail()}"></a>
             <a class="navbar-brand" style="padding-left: 4px"> with roles: </a>
@@ -32,7 +31,6 @@
         <span class="navbar">
       <a class="text-white-50" href="/logout">Logout</a>
     </span>
-    </div>
 </nav>
 <!--Body-->
 <div class="container-fluid">
@@ -40,9 +38,9 @@
         <!--        Left Panel-->
         <div class="col-2 vh-100 pl-0 pr-0" style="padding-top: 20px">
             <nav class="nav flex-column nav-pills">
-                <a class="nav-link active" data-toggle="pill" href="#AdminPanel" role="tab" aria-controls="v-pills-home"
+                <a class="nav-link active" data-toggle="pill" href="#AdminPanel" role="tab" aria-controls="pills-home"
                    aria-selected="true">Admin</a>
-                <a class="nav-link" data-toggle="pill" href="#AuthUserTab" role="tab" aria-controls="v-pills-profile"
+                <a class="nav-link" data-toggle="pill" href="#AuthUserTab" role="tab" aria-controls="pills-profile"
                    aria-selected="false">User</a>
             </nav>
         </div>

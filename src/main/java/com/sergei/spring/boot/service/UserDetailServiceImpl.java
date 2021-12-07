@@ -20,6 +20,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         this.userDao = userDao;
     }
 
+
     @Override
     public User loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userDao.getUserByName(email);

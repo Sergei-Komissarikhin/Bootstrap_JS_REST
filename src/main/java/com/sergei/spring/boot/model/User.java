@@ -31,7 +31,6 @@ public class User implements UserDetails {
     private String email;
 
     @Column(name = "password")
-    @JsonIgnore
     private String password;
 
     @ManyToMany(cascade = CascadeType.MERGE,
