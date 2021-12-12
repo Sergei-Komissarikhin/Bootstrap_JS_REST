@@ -1,9 +1,7 @@
 package com.sergei.spring.boot.controller;
 
-import com.sergei.spring.boot.dao.UserRepository;
 import com.sergei.spring.boot.model.User;
 import com.sergei.spring.boot.service.RESTUserService;
-import com.sergei.spring.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

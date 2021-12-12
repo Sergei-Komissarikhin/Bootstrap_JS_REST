@@ -7,19 +7,13 @@
     <!-- Bootstrap CSS and JS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
+
+
 
     <title>Admin panel</title>
 </head>
-<body>
+<body >
+
 <nav class="navbar navbar-expand navbar-dark bg-dark">
         <ul class="navbar-nav mr-auto text-white ">
             <a class="navbar-brand  font-weight-bold" th:text="${principal.getEmail()}"></a>
@@ -32,6 +26,7 @@
       <a class="text-white-50" href="/logout">Logout</a>
     </span>
 </nav>
+
 <!--Body-->
 <div class="container-fluid">
     <div class="row">
@@ -72,7 +67,7 @@
                                 <div class="card-body">
                                     <table class="table table-striped table-hover">
                                         <thead>
-                                        <tr class="font-weight-bold">
+                                        <tr class="font-weight-bold" id="thExample">
                                             <th scope="col">ID</th>
                                             <th scope="col">FirstName</th>
                                             <th scope="col">LastName</th>
@@ -317,7 +312,7 @@
                                 <h4 class="card-header">Add new user</h4>
                                 <div class="card-body text-center">
                                     <form class="form justify-content-center mx-auto" style="width: 300px"
-                                          th:method="POST" th:action="@{/admin}" th:object="${newUser}">
+                                          th:method="POST" th:action="@{/admin}" >
 
                                         <div class="form-group">
                                             <label for="firstNameN"><b>First name</b></label>
@@ -394,7 +389,7 @@
                                     <td th:text="${principal.getAge()}"></td>
                                     <td th:text="${principal.getEmail()}"></td>
                                     <td>
-                                        <th:block th:each="role :${users[0].getRoles()}">
+                                        <th:block th:each="role :${principal.getRoles()}">
                                             <label th:text="${role.role}"/>
                                         </th:block>
                                     </td>
@@ -409,5 +404,17 @@
     </div>
 </div>
 </div>
+<script type="text/javascript"   src="../../static/js/MyScript.js"></script>
+<!--th:src="@{/js/MyScript.js}"-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

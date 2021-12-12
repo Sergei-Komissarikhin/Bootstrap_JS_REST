@@ -19,7 +19,7 @@ public class Role implements GrantedAuthority {
     private String role;
 
     @ManyToMany(mappedBy = "roles")
-//    @JsonIgnore
+    @JsonIgnore
 //    @JoinTable(
 //            name = "users_roles",
 //            joinColumns = @JoinColumn(name = "role_id"),
