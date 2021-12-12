@@ -27,24 +27,31 @@
             </tr>
             </thead>
             <tbody id="allUsers">
-            <tr th:each="user : ${users}">
-                <td th:text="${user.getId()}"></td>
-                <td th:text="${user.getFirstName()}"></td>
-                <td th:text="${user.getLastName()}"></td>
-                <td th:text="${user.getAge()}"></td>
-                <td th:text="${user.getEmail()}"></td>
-                <td>
-                    <th:block th:each="role :${user.getRoles()}">
-                        <label th:text="${role.role}"/>
-                    </th:block>
-                </td>
-            </tr>
+
             </tbody>
         </table>
     </div>
 </div>
 
-<script type="text/javascript" src="../../static/js/MyScript.js"></script>
+<script type="text/javascript" >
+    function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        let script = document.createElement('script');
+        script.src = src;
+
+        script.onload = () => resolve(script);
+        script.onerror = () => reject(new Error(`Ошибка загрузки скрипта ${src}`));
+
+        document.head.append(script);
+    });
+}
+let promise = loadScript("../../static/js/MyScript.js")
+promise.then(
+    script => alert(`${script.src} loaded!`),
+    error => alert(`Error ${error.message}`)
+)
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
