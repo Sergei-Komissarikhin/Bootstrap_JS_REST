@@ -22,8 +22,9 @@
                 <th scope="col">Age</th>
                 <th scope="col">Email</th>
                 <th scope="col">Role</th>
-                <!--                <th scope="col">Edit</th>-->
-                <!--                <th scope="col">Delete</th>-->
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
             </tr>
             </thead>
             <tbody id="allUsers">
@@ -31,27 +32,155 @@
             </tbody>
         </table>
     </div>
+
+</div>
+<div class="modal fade" id="edit"
+     data-backdrop="static"
+     data-keyboard="false" tabindex="-1"
+     aria-labelledby="editLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--Close button-->
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel">Edit
+                    user</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body of user Edit-->
+            <form class="form-group">
+                <div class="modal-body text-center">
+                    <div class="container-fluid justify-content-center mx-auto"
+                         style="width: 300px">
+                        <div class="form-group">
+                            <label for="firstNameE"><b>First
+                                name</b></label>
+                            <input type="text"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="firstNameE"
+                                   name="firstName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastNameE"><b>Last
+                                name</b></label>
+                            <input type="text"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="lastNameE"
+                                   name="lastName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ageE"><b>Age</b></label>
+                            <input type="number"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="ageE"
+                                   name="age">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailE"><b>Email</b></label>
+                            <input type="email"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="emailE"
+                                   name="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passwordE"><b>Password</b></label>
+                            <input type="password"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="passwordE" name="password"
+                                   >
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close
+                    </button>
+                    <button type="submit" class="btn btn-info">
+                        Edit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="delete"
+     data-backdrop="static"
+     data-keyboard="false" tabindex="-1"
+     aria-labelledby="deleteLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--Close button-->
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteLabel">Edit
+                    user</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body of user Delete-->
+            <form class="form-group">
+                <div class="modal-body text-center">
+                    <div class="container-fluid justify-content-center mx-auto"
+                         style="width: 300px">
+                        <div class="form-group">
+                            <label for="firstNameE"><b>First
+                                name</b></label>
+                            <input type="text"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="firstNameD"
+                                   name="firstName" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastNameE"><b>Last
+                                name</b></label>
+                            <input type="text"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="lastNameD"
+                                   name="lastName" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ageE"><b>Age</b></label>
+                            <input type="number"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="ageD"
+                                   name="age" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailE"><b>Email</b></label>
+                            <input type="email"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="emailD"
+                                   name="email" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close
+                    </button>
+                    <button type="submit" class="btn btn-danger">
+                        Delete
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
-<script type="text/javascript" >
-    function loadScript(src) {
-    return new Promise((resolve, reject) => {
-        let script = document.createElement('script');
-        script.src = src;
 
-        script.onload = () => resolve(script);
-        script.onerror = () => reject(new Error(`Ошибка загрузки скрипта ${src}`));
-
-        document.head.append(script);
-    });
-}
-let promise = loadScript("../../static/js/MyScript.js")
-promise.then(
-    script => alert(`${script.src} loaded!`),
-    error => alert(`Error ${error.message}`)
-)
-
-</script>
+<script type="text/javascript" src="../../static/js/MyScript.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

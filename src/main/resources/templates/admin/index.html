@@ -94,13 +94,13 @@
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-info" data-toggle="modal"
-                                                        data-target="#staticBackdrop"
+                                                        data-target="#edit"
                                                         th:attrappend="data-target=${user.id}">
                                                     Edit
                                                 </button>
 
                                                 <!-- Модальное окно Edit-->
-                                                <div class="modal fade" id="staticBackdrop"
+                                                <div class="modal fade" id="edit"
                                                      th:attrappend="id=${user.id}"
                                                      data-backdrop="static"
                                                      data-keyboard="false" tabindex="-1"
