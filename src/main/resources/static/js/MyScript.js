@@ -49,13 +49,19 @@ function del(id){
     fetch(`${url}/${id}`)
         .then(res => res.json())
         .then(user => {
-                console.log(user)
+            document.getElementById('idD').setAttribute('value',user.id);
+            document.getElementById('firstNameD').setAttribute('value',user.firstName);
+            document.getElementById('lastNameD').setAttribute('value',user.lastName);
+            document.getElementById('ageD').setAttribute('value',user.age);
+            document.getElementById('emailD').setAttribute('value',user.email);
             }
         )
 }
 
-document.getElementById('edit').addEventListener('submit', () => {
+document.getElementById('edit').addEventListener('submit', (e) => {
+    e.preventDefault()
     console.log('Hello World from submit button')
+    e.stopImmediatePropagation()
 })
 
 let user = {
@@ -77,7 +83,7 @@ fetch(url,{
     headers: {
         'Content-Type' : 'application/json; charset=utf-8'
     },
-    body: JSON.stringify('user')
+    body: JSON.stringify(user)
 })
 
 

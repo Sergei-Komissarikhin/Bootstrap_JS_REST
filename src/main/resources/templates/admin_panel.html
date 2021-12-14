@@ -57,7 +57,7 @@
                          style="width: 300px">
 
                         <div class="form-group">
-                            <label for="idE"><b>id</b></label>
+                            <label for="idE"><b>Id</b></label>
                             <input type="text"
                                    class="form-control form-control-sm  alert-warning"
                                    id="idE"
@@ -142,7 +142,7 @@
         <div class="modal-content">
             <!--Close button-->
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteLabel">Edit
+                <h5 class="modal-title" Id="deleteLabel">Edit
                     user</h5>
                 <button type="button" class="close" data-dismiss="modal"
                         aria-label="Close">
@@ -154,6 +154,15 @@
                 <div class="modal-body text-center">
                     <div class="container-fluid justify-content-center mx-auto"
                          style="width: 300px">
+
+                        <div class="form-group">
+                            <label for="idD"><b>id</b></label>
+                            <input type="text"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="idD"
+                                   name="id" disabled>
+                        </div>
+
                         <div class="form-group">
                             <label for="firstNameE"><b>First
                                 name</b></label>
@@ -193,7 +202,7 @@
                             <select multiple
                                     class="form-control form-control-sm"
                                     name="rolesForUser" size="2"
-                                    id="RolesD" required>
+                                    id="RolesD" disabled>
                                 <div>
                                     <option th:text="ADMIN"></option>
                                     <option th:text="USER"></option>
