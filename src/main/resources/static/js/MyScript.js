@@ -49,20 +49,11 @@ function del(id){
     fetch(`${url}/${id}`)
         .then(res => res.json())
         .then(user => {
-            document.getElementById('idD').setAttribute('value',user.id);
-            document.getElementById('firstNameD').setAttribute('value',user.firstName);
-            document.getElementById('lastNameD').setAttribute('value',user.lastName);
-            document.getElementById('ageD').setAttribute('value',user.age);
-            document.getElementById('emailD').setAttribute('value',user.email);
+                console.log(user)
             }
         )
 }
 
-document.getElementById('edit').addEventListener('submit', (e) => {
-    e.preventDefault()
-    console.log('Hello World from submit button')
-    e.stopImmediatePropagation()
-})
 
 let user = {
     firstName: 'Vlad',
@@ -78,12 +69,25 @@ let user = {
     ]
 }
 
-fetch(url,{
-    method:'POST',
-    headers: {
-        'Content-Type' : 'application/json; charset=utf-8'
-    },
-    body: JSON.stringify(user)
+const editSub = document.getElementById('editSubmit')
+
+editSub.addEventListener('click', e =>{
+    e.preventDefault()
+
+
+
 })
+
+const res = fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+    },
+    body: JSON.stringify('user')
+})
+
+let result = res.json
+alert(result.message())
+
 
 

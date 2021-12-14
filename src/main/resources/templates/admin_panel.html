@@ -51,7 +51,7 @@
                 </button>
             </div>
             <!--Body of user Edit-->
-            <form class="form-group">
+            <form class="form-group" id="editModal" >
                 <div class="modal-body text-center">
                     <div class="container-fluid justify-content-center mx-auto"
                          style="width: 300px">
@@ -110,7 +110,7 @@
                             <select multiple
                                     class="form-control form-control-sm"
                                     name="rolesForUser" size="2"
-                                    id="RolesE" required>
+                                    id="rolesE" required>
                                 <div >
                                     <option th:text="ADMIN"></option>
                                     <option th:text="USER"></option>
@@ -120,12 +120,12 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" >
                     <button type="button" class="btn btn-secondary"
                             data-dismiss="modal">Close
                     </button>
 
-                    <button type="submit" class="btn btn-info">
+                    <button type="submit"  class="btn btn-info" id="editSubmit">
                         Edit
                     </button>
                 </div>
@@ -225,16 +225,11 @@
 </div>
 
 
-<script type="text/javascript" src="../../static/js/MyScript.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../static/js/MyScript.js" th:src="@{../../static/js/MyScript.js}"></script>
 </body>
 </html>
