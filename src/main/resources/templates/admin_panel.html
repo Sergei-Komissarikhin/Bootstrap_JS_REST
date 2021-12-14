@@ -55,6 +55,15 @@
                 <div class="modal-body text-center">
                     <div class="container-fluid justify-content-center mx-auto"
                          style="width: 300px">
+
+                        <div class="form-group">
+                            <label for="idE"><b>id</b></label>
+                            <input type="text"
+                                   class="form-control form-control-sm  alert-warning"
+                                   id="idE"
+                                   name="id" disabled>
+                        </div>
+
                         <div class="form-group">
                             <label for="firstNameE"><b>First
                                 name</b></label>
@@ -93,15 +102,29 @@
                             <label for="passwordE"><b>Password</b></label>
                             <input type="password"
                                    class="form-control form-control-sm  alert-warning"
-                                   id="passwordE" name="password"
-                                   >
+                                   id="passwordE" name="password" required>
                         </div>
+
+                        <div class="form-group">
+                            <label for="RolesE"><b>Role</b></label>
+                            <select multiple
+                                    class="form-control form-control-sm"
+                                    name="rolesForUser" size="2"
+                                    id="RolesE" required>
+                                <div >
+                                    <option th:text="ADMIN"></option>
+                                    <option th:text="USER"></option>
+                                </div>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
                             data-dismiss="modal">Close
                     </button>
+
                     <button type="submit" class="btn btn-info">
                         Edit
                     </button>
@@ -163,6 +186,19 @@
                                    class="form-control form-control-sm  alert-warning"
                                    id="emailD"
                                    name="email" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="RolesE"><b>Role</b></label>
+                            <select multiple
+                                    class="form-control form-control-sm"
+                                    name="rolesForUser" size="2"
+                                    id="RolesD" required>
+                                <div>
+                                    <option th:text="ADMIN"></option>
+                                    <option th:text="USER"></option>
+                                </div>
+                            </select>
                         </div>
                     </div>
                 </div>
