@@ -1,11 +1,29 @@
 const url = 'http://localhost:8080/api/users'
 const allUsers = document.getElementById('allUsers')
+const getEditBtn = document.getElementById('editBtn')
 let output = ''
-fetch(url)
-    .then(res => res.json())
-    .then((data) => {
-        data.forEach(post => {
-            output += `
+
+const idEdit = document.getElementById('idE')
+const firstNameEdit = document.getElementById('firstNameE')
+const lastNameEdit = document.getElementById('lastNameE')
+const ageEdit = document.getElementById('ageE')
+const emailEdit = document.getElementById('emailE')
+const rolesEdit = document.getElementById('rolesE')
+
+const user = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    age: '',
+    email: '',
+    password: '',
+    roles: []
+}
+    fetch(url,)
+        .then(res => res.json())
+        .then((data) => {
+            data.forEach(post => {
+                output += `
             <tr>
                 <td id="id${post.id}">${post.id}</td>
                 <td id="firstName{post.id}">${post.firstName}</td>
@@ -27,10 +45,11 @@ fetch(url)
                  </td>
             </tr>             
 `
-        })
-        allUsers.innerHTML = output
+            })
+            allUsers.innerHTML = output
 
-    })
+        })
+
 
 function edit(id){
     fetch(`${url}/${id}`)
@@ -45,49 +64,48 @@ function edit(id){
             }
         )
 }
+
 function del(id){
     fetch(`${url}/${id}`)
         .then(res => res.json())
         .then(user => {
-                console.log(user)
+            document.getElementById('idD').setAttribute('value',user.id);
+            document.getElementById('firstNameD').setAttribute('value',user.firstName);
+            document.getElementById('lastNameD').setAttribute('value',user.lastName);
+            document.getElementById('ageD').setAttribute('value',user.age);
+            document.getElementById('emailD').setAttribute('value',user.email);
             }
         )
 }
 
+getEditBtn.addEventListener('click', async (e) =>{
+    e.preventDefault()
+    await getPutRequest()
+    $('#edit').hide()
+})
 
-let user = {
-    firstName: 'Vlad',
-    lastName: 'Petrov',
-    age: 33,
-    email: 'sus@mail.ru',
-    password: '1234',
-    roles: [
-        {
-            id: 2,
-            role: 'USER'
-        }
-    ]
+function getPutRequest(){
+    user.id = idEdit.getAttribute('value')
+    user.firstName = firstNameEdit.value
+    user.lastName = lastNameEdit.value
+    user.age = ageEdit.value
+    user.email = emailEdit.value
+    user.roles = Array.from(rolesEdit.options)
+            .filter(option => option.selected)
+            .map(option => option.value)
+    console.log(user)
+    return fetch(url,{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(user)
+    })
 }
 
-const editSub = document.getElementById('editSubmit')
-
-editSub.addEventListener('click', e =>{
-    e.preventDefault()
 
 
 
-})
-
-const res = fetch(url, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-    },
-    body: JSON.stringify('user')
-})
-
-let result = res.json
-alert(result.message())
 
 
 
