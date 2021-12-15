@@ -81,7 +81,10 @@ function del(id){
 getEditBtn.addEventListener('click', async (e) =>{
     e.preventDefault()
     await getPutRequest()
+
     $('#edit').hide()
+    $(".modal-backdrop").remove()
+
 })
 
 function getPutRequest(){
