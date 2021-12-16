@@ -1,13 +1,16 @@
 package com.sergei.spring.boot.service;
 
 import com.sergei.spring.boot.dao.UserRepository;
+import com.sergei.spring.boot.model.Role;
 import com.sergei.spring.boot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class RESTUserServiceImpl implements RESTUserService {
@@ -17,6 +20,8 @@ public class RESTUserServiceImpl implements RESTUserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    RoleService roleService;
 
     @Override
     public List<User> getAllUsers() {
@@ -39,10 +44,19 @@ public class RESTUserServiceImpl implements RESTUserService {
     @Override
     @Transactional
     public void updateUser(User user) {
-        if(!user.getPassword().startsWith("$2a$08$")){
+        user.setRoles(getRoles(user));
+        if (!user.getPassword().startsWith("$2a$08$")) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }
         userRepository.updateUser(user);
+    }
+
+    private Set<Role> getRoles(User user) {
+        Set<Role> updateRoles = new HashSet<>();
+        for (Role role : user.getRoles()) {
+            updateRoles.add(roleService.getRoleByName(role.getRole()));
+        }
+        return updateRoles;
     }
 
     @Transactional

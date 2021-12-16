@@ -1,7 +1,7 @@
 const url = 'http://localhost:8080/api/users'
 const allUsers = document.getElementById('allUsers')
 const getEditBtn = document.getElementById('editBtn')
-let output = ''
+let output
 
 const idEdit = document.getElementById('idE')
 const firstNameEdit = document.getElementById('firstNameE')
@@ -19,9 +19,11 @@ const user = {
     password: '',
     roles: []
 }
+function fillTheTable() {
     fetch(url,)
         .then(res => res.json())
         .then((data) => {
+            output = ''
             data.forEach(post => {
                 output += `
             <tr>
@@ -47,8 +49,9 @@ const user = {
 `
             })
             allUsers.innerHTML = output
-
         })
+}
+fillTheTable()
 
 
 function edit(id){
@@ -85,6 +88,7 @@ getEditBtn.addEventListener('click', async (e) =>{
     $('#edit').hide()
     $(".modal-backdrop").remove()
 
+    fillTheTable()
 })
 
 function getPutRequest(){
@@ -104,6 +108,7 @@ function getPutRequest(){
         },
         body: JSON.stringify(user)
     })
+
 }
 
 
