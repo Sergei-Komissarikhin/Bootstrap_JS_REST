@@ -32,10 +32,10 @@ function fillTheTable() {
                 output += `
             <tr>
                 <td id="id${post.id}">${post.id}</td>
-                <td id="firstName{post.id}">${post.firstName}</td>
-                <td id="lastName{post.id}">${post.lastName}</td>
-                <td id="age{post.id}">${post.age}</td>
-                <td id="email{post.id}">${post.email}</td>
+                <td id="firstName${post.id}">${post.firstName}</td>
+                <td id="lastName${post.id}">${post.lastName}</td>
+                <td id="age${post.id}">${post.age}</td>
+                <td id="email${post.id}">${post.email}</td>
                 <td id="roles${post.id}">${post.roles.map(r => r.role).join(', ')}</td>
                 <td>
                     <button type="button" class="btn btn-info" data-toggle="modal"
@@ -55,6 +55,7 @@ function fillTheTable() {
             allUsers.innerHTML = output
         })
 }
+
 fillTheTable()
 
 
@@ -99,6 +100,7 @@ function getPutRequest(){
     user.lastName = lastNameEdit.value
     user.age = ageEdit.value
     user.email = emailEdit.value
+    user.password = passwordEdit.value
     user.roles = Array.from(rolesEdit.options)
             .filter(option => option.selected)
             .map(option => option.value)
@@ -161,7 +163,6 @@ function getPostRequest(){
         },
         body: JSON.stringify(user)
     })
-
 }
 
 
