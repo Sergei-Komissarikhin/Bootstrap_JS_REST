@@ -132,6 +132,10 @@ getNewUserBtn.addEventListener('click', async(e) => {
     e.preventDefault()
     await getPostRequest()
     fillTheTable()
+    document.getElementById('home-tab').click(function (e){
+        e.preventDefault()
+        $(this).tab('show')
+    })
 })
 
 function getPostRequest(){
