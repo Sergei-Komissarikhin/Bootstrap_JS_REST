@@ -140,10 +140,16 @@ function getPostRequest(){
     user.lastName = document.getElementById('lastNameN').value
     user.age = document.getElementById('ageN').value
     user.email = document.getElementById('emailN').value
+    user.password = document.getElementById('passwordN').value
     user.roles = Array.from(document.getElementById('rolesN').options)
         .filter(option => option.selected)
         .map(option => option.value)
     console.log(user)
+    document.getElementById('firstNameN').value = ''
+    document.getElementById('lastNameN').value = ''
+    document.getElementById('ageN').value =''
+    document.getElementById('passwordN').value = ''
+    document.getElementById('emailN').value=''
     return fetch(url,{
         method: 'POST',
         headers: {
@@ -151,6 +157,7 @@ function getPostRequest(){
         },
         body: JSON.stringify(user)
     })
+
 }
 
 

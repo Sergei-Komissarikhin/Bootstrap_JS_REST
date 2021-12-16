@@ -37,7 +37,7 @@ public class UserController {
 
     @GetMapping("/user/show")
     public String userShowPage(Principal principal, Model model) {
-        model.addAttribute("users", userService.loadUserByUsername(principal.getName()));
-        return "/user/show";
+        model.addAttribute("user", userService.loadUserByUsername(principal.getName()));
+        return "user/show";
     }
 }
