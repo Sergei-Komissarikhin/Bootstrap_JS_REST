@@ -1,6 +1,7 @@
 const url = 'http://localhost:8080/api/users'
 const allUsers = document.getElementById('allUsers')
 const getEditBtn = document.getElementById('editBtn')
+const getDeleteBtn = document.getElementById('deleteBtn')
 let output
 
 const idEdit = document.getElementById('idE')
@@ -8,6 +9,7 @@ const firstNameEdit = document.getElementById('firstNameE')
 const lastNameEdit = document.getElementById('lastNameE')
 const ageEdit = document.getElementById('ageE')
 const emailEdit = document.getElementById('emailE')
+const passwordEdit = document.getElementById('passwordE')
 const rolesEdit = document.getElementById('rolesE')
 
 const user = {
@@ -58,12 +60,12 @@ function edit(id){
     fetch(`${url}/${id}`)
         .then(res => res.json())
         .then(user => {
-                document.getElementById('idE').setAttribute('value',user.id);
-                document.getElementById('firstNameE').setAttribute('value',user.firstName);
-                document.getElementById('lastNameE').setAttribute('value',user.lastName);
-                document.getElementById('ageE').setAttribute('value',user.age);
-                document.getElementById('emailE').setAttribute('value',user.email);
-                document.getElementById('passwordE').setAttribute('value',user.password);
+                idEdit.setAttribute('value',user.id);
+                firstNameEdit.setAttribute('value',user.firstName);
+                lastNameEdit.setAttribute('value',user.lastName);
+                ageEdit.setAttribute('value',user.age);
+                emailEdit.setAttribute('value',user.email);
+                passwordEdit.setAttribute('value',user.password);
             }
         )
 }
@@ -83,11 +85,9 @@ function del(id){
 
 getEditBtn.addEventListener('click', async (e) =>{
     e.preventDefault()
-    await getPutRequest()
-
+    await getPutRequest(document.getElementById('idE').value)
     $('#edit').hide()
     $(".modal-backdrop").remove()
-
     fillTheTable()
 })
 
@@ -108,7 +108,23 @@ function getPutRequest(){
         },
         body: JSON.stringify(user)
     })
+}
 
+getDeleteBtn.addEventListener('click', async (e) =>{
+    e.preventDefault()
+    await getDeleteRequest(document.getElementById('idD').value)
+    $('#delete').hide()
+    $(".modal-backdrop").remove()
+    fillTheTable()
+})
+
+function getDeleteRequest(id){
+    return fetch(`${url}/${id}`,{
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+    })
 }
 
 
