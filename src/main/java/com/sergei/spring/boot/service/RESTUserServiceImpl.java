@@ -37,6 +37,7 @@ public class RESTUserServiceImpl implements RESTUserService {
     @Transactional
     @Override
     public void addUser(User user) {
+        user.setRoles(getRoles(user));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.addUser(user);
     }

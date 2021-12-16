@@ -124,17 +124,17 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="RolesN"><b>Role</b></label>
+                                            <label for="rolesN"><b>Role</b></label>
                                             <select multiple
                                                     class="form-control form-control-sm"
-                                                    name="rolesForUser" size="2"
-                                                    id="RolesN" required>
+                                                    size="2"
+                                                    id="rolesN" required>
                                                 <div th:each="role :${roles}">
                                                     <option th:text="${role.getRole()}"></option>
                                                 </div>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-success">Add new user</button>
+                                        <button type="submit" class="btn btn-success" id="newUserBtn">Add new user</button>
                                     </form>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@ const url = 'http://localhost:8080/api/users'
 const allUsers = document.getElementById('allUsers')
 const getEditBtn = document.getElementById('editBtn')
 const getDeleteBtn = document.getElementById('deleteBtn')
-let output
+const getNewUserBtn = document.getElementById('newUserBtn')
 
 const idEdit = document.getElementById('idE')
 const firstNameEdit = document.getElementById('firstNameE')
@@ -11,6 +11,8 @@ const ageEdit = document.getElementById('ageE')
 const emailEdit = document.getElementById('emailE')
 const passwordEdit = document.getElementById('passwordE')
 const rolesEdit = document.getElementById('rolesE')
+
+let output
 
 const user = {
     id: '',
@@ -100,7 +102,6 @@ function getPutRequest(){
     user.roles = Array.from(rolesEdit.options)
             .filter(option => option.selected)
             .map(option => option.value)
-    console.log(user)
     return fetch(url,{
         method: 'PUT',
         headers: {
@@ -123,7 +124,32 @@ function getDeleteRequest(id){
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
+        }
+    })
+}
+
+getNewUserBtn.addEventListener('click', async(e) => {
+    e.preventDefault()
+    await getPostRequest()
+    fillTheTable()
+})
+
+function getPostRequest(){
+    user.id = ''
+    user.firstName = document.getElementById('firstNameN').value
+    user.lastName = document.getElementById('lastNameN').value
+    user.age = document.getElementById('ageN').value
+    user.email = document.getElementById('emailN').value
+    user.roles = Array.from(document.getElementById('rolesN').options)
+        .filter(option => option.selected)
+        .map(option => option.value)
+    console.log(user)
+    return fetch(url,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
         },
+        body: JSON.stringify(user)
     })
 }
 
