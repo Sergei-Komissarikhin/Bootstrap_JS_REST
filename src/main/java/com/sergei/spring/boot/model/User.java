@@ -42,13 +42,6 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
-    public void addRoleToUser(Role role) {
-        if (roles == null) {
-            roles = new HashSet<>();
-        }
-        roles.add(role);
-    }
-
     public User() {
     }
 

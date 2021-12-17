@@ -6,7 +6,7 @@ import com.sergei.spring.boot.model.User;
 import java.util.List;
 import java.util.Set;
 
-public interface RESTUserService {
+public interface RESTUserService  {
     void addUser(User user);
 
     List<User> getAllUsers();

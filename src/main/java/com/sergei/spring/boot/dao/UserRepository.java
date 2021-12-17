@@ -16,4 +16,6 @@ public interface UserRepository {
     void delete(Long id);
 
     void updateUser(User user);
+
+    User loadUserByUsername(String email);
 }
