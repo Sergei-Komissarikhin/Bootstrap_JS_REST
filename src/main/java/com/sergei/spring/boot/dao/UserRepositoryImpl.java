@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
+
     @Autowired
     EntityManager entityManager;
 
@@ -36,5 +37,15 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void updateUser(User user) {
         entityManager.merge(user);
+    }
+
+    @Override
+    public User loadUserByUsername(String email) {
+        return entityManager.createQuery("SELECT u FROM User u " +
+                                "INNER JOIN FETCH u.roles " +
+                                "WHERE u.email = :email",
+                        User.class)
+                .setParameter("email", email)
+                .getSingleResult();
     }
 }

@@ -1,7 +1,7 @@
 package com.sergei.spring.boot.model;
 
+import com.sergei.spring.boot.service.RESTUserService;
 import com.sergei.spring.boot.service.RoleService;
-import com.sergei.spring.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,11 +11,11 @@ import java.util.Set;
 
 @Component
 public class CreateRoleAndUsers {
-    private final UserService userService;
+    private final RESTUserService userService;
     private final RoleService roleService;
 
     @Autowired
-    public CreateRoleAndUsers(UserService userService, RoleService roleService) {
+    public CreateRoleAndUsers(RESTUserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }
