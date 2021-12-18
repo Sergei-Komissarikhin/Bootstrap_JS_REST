@@ -90,8 +90,7 @@
                             <div class="card">
                                 <h4 class="card-header">Add new user</h4>
                                 <div class="card-body text-center">
-                                    <form class="form justify-content-center mx-auto" style="width: 300px"
-                                          th:method="POST" th:action="@{/admin}">
+                                    <form class="form justify-content-center mx-auto" style="width: 300px">
 
                                         <div class="form-group">
                                             <label for="firstNameN"><b>First name</b></label>
@@ -275,7 +274,8 @@
                             data-dismiss="modal">Close
                     </button>
 
-                    <button type="submit" class="btn btn-info" id="editBtn">
+                    <button type="submit" class="btn btn-info" id="editBtn"
+                            data-dismiss="modal">
                         Edit
                     </button>
                 </div>

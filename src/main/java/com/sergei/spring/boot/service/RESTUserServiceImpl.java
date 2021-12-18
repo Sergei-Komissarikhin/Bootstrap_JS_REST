@@ -20,6 +20,7 @@ public class RESTUserServiceImpl implements RESTUserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @Autowired
     RoleService roleService;
 
