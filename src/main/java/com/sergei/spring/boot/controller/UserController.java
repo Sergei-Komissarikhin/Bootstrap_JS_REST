@@ -1,8 +1,6 @@
 package com.sergei.spring.boot.controller;
 
-import com.sergei.spring.boot.service.RoleService;
 import com.sergei.spring.boot.service.UserDetailServiceImpl;
-import com.sergei.spring.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
