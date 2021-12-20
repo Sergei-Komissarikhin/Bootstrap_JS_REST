@@ -32,6 +32,14 @@ public class CreateRoleAndUsers {
 
         userService.addUser(new User("Anna", "Ivanova", 37,
                 "asu@ya.ru", "1234",
+                Set.of(roleService.getRoleByName("ADMIN"))));
+
+        userService.addUser(new User("Dima", "Ivanov", 10,
+                "dima@ya.ru", "12345",
+                Set.of(roleService.getRoleByName("USER"))));
+
+        userService.addUser(new User("Lesha", "Ivanov", 7,
+                "lesha@ya.ru", "1234567",
                 Set.of(roleService.getRoleByName("USER"))));
     }
 }

@@ -18,12 +18,11 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final LoginSuccessHandler loginSuccessHandler;
+
     private final UserDetailsService userDetailsService;
 
     @Autowired
-    public SecurityConfig(LoginSuccessHandler loginSuccessHandler, UserDetailsService userDetailsService, DataSource dataSource) {
-        this.loginSuccessHandler = loginSuccessHandler;
+    public SecurityConfig( UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -65,8 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").authenticated()
-                .antMatchers("/user**").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/admin**").hasAnyAuthority("ADMIN");
-
+                .antMatchers("/api/**").permitAll()
+                .antMatchers("/user/**").hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/admin/**").hasAnyAuthority("ADMIN");
     }
 }
