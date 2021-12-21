@@ -49,7 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")
                 .passwordParameter("password")
                 // даем доступ к форме логина всем
-                .permitAll();
+                .permitAll()
+
+                .and()
+                .rememberMe()
+                .tokenValiditySeconds(20);
 
         http.logout()
                 // разрешаем делать логаут всем
